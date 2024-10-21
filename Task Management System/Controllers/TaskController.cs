@@ -90,6 +90,7 @@ namespace Task_Management_System.Controllers
         }
 
         [HttpDelete]
+        [Authorize]
         public ActionResult deletetask(int id) { 
 
              if(id == 0 ||! _taskService.it_is_found(id))
