@@ -9,9 +9,11 @@ namespace Task_Management_System.DTOs
         [Required]
         public string UserEmail { get; set; }
         [Required]
-        [Compare("ConfirmPassword")]
+        
         public string Password { get; set; }
         [Required]
+
+        [Compare("Password")]
         public string ConfirmPassword { get; set; }
     }
 }
