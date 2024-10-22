@@ -12,7 +12,6 @@ using Task_Management_System.Model;
 
 namespace Task_Management_System.Controllers
 {
-    
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -27,7 +26,7 @@ namespace Task_Management_System.Controllers
         }
 
         [HttpPost]
-        [Route("api/Account")]
+        [Route("api/[controller]")]
         public async Task<ActionResult> Adduser(UserDto user)
         {
 
@@ -55,7 +54,7 @@ namespace Task_Management_System.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("api/[controller]")]
         public ActionResult gatall()
         {
             var users = _userManager.Users.ToList();
@@ -64,8 +63,8 @@ namespace Task_Management_System.Controllers
 
         }
 
-        [HttpPost]
-        [Route("api/Account/login")]
+        [HttpPost("api/[controller]/login")]
+       
         public async Task<ActionResult> login(loginDtos login)
         {
             if (ModelState.IsValid)
@@ -116,7 +115,7 @@ namespace Task_Management_System.Controllers
             return Unauthorized();
         }
 
-        [HttpGet("get")]
+        [HttpGet("api/[controller]/get")]
         [Authorize]
        
         public ActionResult get()

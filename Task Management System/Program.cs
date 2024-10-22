@@ -79,11 +79,16 @@ namespace Task_Management_System
             }
 
             app.UseHttpsRedirection();
+            app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseCors(MyAllowSpecificOrigins);
-
-            app.MapControllers();
+         
+             //app.MapControllers();
+           app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers(); // Works with explicit routing as well
+            });
 
             app.Run();
         }

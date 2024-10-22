@@ -7,7 +7,7 @@ using Task_Management_System.Reprository;
 
 namespace Task_Management_System.Controllers
 {
-    //[Route("api/[controller]")]
+    
     [ApiController]
     public class TaskController : ControllerBase
     {
@@ -19,9 +19,9 @@ namespace Task_Management_System.Controllers
         }
 
 
-        [HttpGet]
-        [Route("api/Task")]
-       // [Authorize]
+        [HttpGet("api/[controller]")]
+      
+       [Authorize]
         public IActionResult Get(string userid)
         {
         List<TaskDTO> tasks = _taskService.GetTasks(userid);
@@ -35,8 +35,8 @@ namespace Task_Management_System.Controllers
             return NoContent();
 
         }
-        [HttpGet]
-        [Route("api/Task/task")]
+        [HttpGet("api/[controller]/task")]
+      
         [Authorize]
         public IActionResult task(string userid , int taskID)
         {
@@ -60,8 +60,8 @@ namespace Task_Management_System.Controllers
 
 
         // adding new task
-        [HttpPost]
-        [Route("api/Task/")]
+        [HttpPost("api/[controller]")]
+        
         [Authorize]
         public ActionResult addtask(TaskDTO taskDTO)
         {
@@ -78,8 +78,8 @@ namespace Task_Management_System.Controllers
         }
         
         //Updating task
-        [HttpPut]
-        [Route("api/Task")]
+        [HttpPut("api/[controller]")]
+        
         [Authorize]
         public ActionResult updatetask(TaskDTO taskDTO)
         {
@@ -93,8 +93,8 @@ namespace Task_Management_System.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpDelete]
-        [Route("api/Task")]
+        [HttpDelete("api/[controller]")]
+        
         [Authorize]
         public ActionResult deletetask(int id) { 
 
