@@ -12,7 +12,7 @@ using Task_Management_System.Model;
 
 namespace Task_Management_System.Controllers
 {
-    [Route("api/[controller]")]
+    
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -27,7 +27,7 @@ namespace Task_Management_System.Controllers
         }
 
         [HttpPost]
-
+        [Route("api/Account")]
         public async Task<ActionResult> Adduser(UserDto user)
         {
 
@@ -64,7 +64,8 @@ namespace Task_Management_System.Controllers
 
         }
 
-        [HttpPost("login")]
+        [HttpPost]
+        [Route("api/Account/login")]
         public async Task<ActionResult> login(loginDtos login)
         {
             if (ModelState.IsValid)

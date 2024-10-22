@@ -7,7 +7,7 @@ using Task_Management_System.Reprository;
 
 namespace Task_Management_System.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
     [ApiController]
     public class TaskController : ControllerBase
     {
@@ -20,7 +20,8 @@ namespace Task_Management_System.Controllers
 
 
         [HttpGet]
-        [Authorize]
+        [Route("api/Task")]
+       // [Authorize]
         public IActionResult Get(string userid)
         {
         List<TaskDTO> tasks = _taskService.GetTasks(userid);
@@ -34,7 +35,8 @@ namespace Task_Management_System.Controllers
             return NoContent();
 
         }
-        [HttpGet("task")]
+        [HttpGet]
+        [Route("api/Task/task")]
         [Authorize]
         public IActionResult task(string userid , int taskID)
         {
@@ -59,6 +61,7 @@ namespace Task_Management_System.Controllers
 
         // adding new task
         [HttpPost]
+        [Route("api/Task/")]
         [Authorize]
         public ActionResult addtask(TaskDTO taskDTO)
         {
@@ -76,6 +79,7 @@ namespace Task_Management_System.Controllers
         
         //Updating task
         [HttpPut]
+        [Route("api/Task")]
         [Authorize]
         public ActionResult updatetask(TaskDTO taskDTO)
         {
@@ -90,6 +94,7 @@ namespace Task_Management_System.Controllers
         }
 
         [HttpDelete]
+        [Route("api/Task")]
         [Authorize]
         public ActionResult deletetask(int id) { 
 
